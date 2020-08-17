@@ -14,10 +14,10 @@ source $PROJECT_ROOT_DIR/bin/dev/es/es_functions
 source $PROJECT_ROOT_DIR/bin/dev/kibana/kibana_functions
 
 # Create certs (ca.crt, es01.[key|crt], kibana.[key|crt], etc)
-docker-compose -f $PROJECT_ROOT_DIR/docker/es/certs/create-certs.yml run --rm create_certs
+docker-compose -f $PROJECT_ROOT_DIR/create-certs.yml run --rm create_certs
 
 # Start all services
-docker-compose -f $PROJECT_ROOT_DIR/docker-compose.yml up -d
+docker-compose -f $PROJECT_ROOT_DIR/secure.yml up -d
 
 # Ensure that Elasticsearch is ready
 WAIT_TIME=15

@@ -8,8 +8,8 @@ PROJECT_ROOT_DIR=$DIR/../../
 
 source $PROJECT_ROOT_DIR/.env
 
-if [ "$(echo $PLS_ELASTIC_BASIC_AUTH | tr '[:upper:]' '[:lower:]')" = "true" ]; then
-  docker-compose -f $PROJECT_ROOT_DIR/docker-compose.yml down
+if [ "$(echo $SECURE | tr '[:upper:]' '[:lower:]')" = "true" ]; then
+  docker-compose -f $PROJECT_ROOT_DIR/secure.yml down
 else
-  docker-compose -f $PROJECT_ROOT_DIR/docker/insecure.yml down
+  docker-compose -f $PROJECT_ROOT_DIR/insecure.yml down
 fi
